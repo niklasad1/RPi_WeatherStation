@@ -1,0 +1,7 @@
+{
+  "name": "mongodb://",	
+  "user": "<your username>",
+  "pwd": "<your password>",
+  "url": "<your url>"
+}
+

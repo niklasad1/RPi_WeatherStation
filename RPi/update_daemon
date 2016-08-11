@@ -1,0 +1,34 @@
+#! /bin/sh
+# /etc/init.d/update_daemon
+
+### BEGIN INIT INFO
+# Provides:	     update_daemon
+# Required-Start:    $remote_fs $syslog
+# Required-Stop:     $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Simple script to start a program at boot
+# Description:       TODO
+### END INIT INFO
+
+# If you want a command to always run, put it here
+
+# Carry out specific functions when asked to by the system
+case "$1" in
+  start)
+    echo "Starting UpdateDaemon"
+    # run application you want to start
+    nohup /usr/local/bin/update.py &> /tmp/update_daemon.log
+    ;;
+  stop)
+    echo "Stopping UpdateDaemon"
+    # kill application you want to stop
+    pkill -f /usr/local/bin/update.py 
+    ;;
+  *)
+    echo "Usage: /etc/init.d/weatherstation {start|stop}"
+    exit 1
+    ;;
+esac
+
+exit 0

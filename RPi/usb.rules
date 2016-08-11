@@ -1,0 +1,2 @@
+ACTION=="add", KERNEL=="sd*1", RUN+="/usr/local/bin/mount_usb_run.sh '%E{DEVNAME}'"
+SUBSYSTEMS=="usb", KERNEL=="sd*1", ACTION=="remove", RUN+="/usr/local/bin/unmount_usb.sh '%E{DEVNAME}"
